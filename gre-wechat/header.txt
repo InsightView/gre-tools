@@ -1,0 +1,9 @@
+p: testSites
+m: ajax
+ym: 2018-05
+neeaID: 00000000
+cities: BEIJING_BEIJING;
+citiesNames: %E5%8C%97%E4%BA%AC;
+whichFirst: AS
+isFilter: 0
+isSearch: 1
