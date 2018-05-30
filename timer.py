@@ -27,7 +27,7 @@ def readAnswer():
 
 
 def quiz(quiz_counter):
-    youAnswer = input("{}. ".format(quiz_counter))
+    youAnswer = input("{}  {}. ".format(str(datetime.now())[11:-7],quiz_counter))
     return youAnswer
 
 
