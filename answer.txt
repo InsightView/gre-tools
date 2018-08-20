@@ -90,7 +90,7 @@ section 18 参考答案
 6-10 AEH/CE/AF/CD/AC
 
 section 19 参考答案
-1-5 A/C/AF/BD/BD
+1-5 A/C/AF/AD/BD
 
 6-10 AEI/BD/BD/BC/BD
 

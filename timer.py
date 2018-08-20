@@ -1,33 +1,54 @@
 from datetime import datetime
 from collections import Counter
-
+import sys
 
 timeList = []
+answerFile = sys.argv[-1]
+if answerFile == "timer.py":
+    answerFile = "answer.txt"
+else:
+    print("Loading", answerFile)
 
 
 def readAnswer():
     answerList = []
     counter = 0
     print("Loading answers...")
-    with open("./answer.txt", "r") as file:
-        for line in file.readlines():
-            line = line.strip()
-            if len(line) > 1:
-                if line.startswith("section"):
-                    answer = []
-                    counter = 0
-                else:
-                    ans = line.split(" ")[1]
-                    answer += ans.split("/")
-                    counter += 1
-                if counter == 2:
-                    answerList.append(answer)
+    if answerFile == "answer.txt":
+        with open("./{}".format(answerFile), "r") as file:
+            for line in file.readlines():
+                line = line.strip()
+                if len(line) > 1:
+                    if line.startswith("section"):
+                        answer = []
+                        counter = 0
+                    else:
+                        ans = line.split(" ")[1]
+                        answer += ans.split("/")
+                        counter += 1
+                    if counter == 2:
+                        answerList.append(answer)
+    else:
+        with open("./{}".format(answerFile), "r") as file:
+            for line in file.readlines():
+                line = line.strip()
+                if len(line) > 1:
+                    if line.startswith("section"):
+                        answer = []
+                        counter = 0
+                    else:
+                        ans = line.split(" ")[1]
+                        answer += ans.split("/")
+                        counter += 1
+                    if counter == 2:
+                        answerList.append(answer)
     print("Loading section done.", len(answerList))
     return answerList
 
 
 def quiz(quiz_counter):
-    youAnswer = input("{}  {}. ".format(str(datetime.now())[11:-7],quiz_counter))
+    youAnswer = input("{}  {}. ".format(
+        str(datetime.now())[11:-7], quiz_counter))
     return youAnswer
 
 
@@ -53,7 +74,8 @@ def correction(results, answerList, timeList):
             answerMark = True
         else:
             answerMark = False
-        resultTable = str(i+1)+":\t"+item1+"\t"+item2+"\t" +str(answerMark)+"\t"+str(timeList[i])[:-7]
+        resultTable = str(i+1)+":\t"+item1+"\t"+item2+"\t" + \
+            str(answerMark)+"\t"+str(timeList[i])[:-7]
         # print(resultTable)
         resultTableList.append(resultTable)
     cor = round(correctNum/len(results), 2)

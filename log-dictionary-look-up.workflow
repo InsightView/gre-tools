@@ -1,0 +1,1 @@
+on run {input, parameters}		set logPath to "Desktop/words.txt"		set lookUpWord to quoted form of (input as string)		do shell script "cd; echo " & lookUpWord & " >> " & quoted form of logPath		do shell script "open dict://" & lookUpWord		return inputend run
